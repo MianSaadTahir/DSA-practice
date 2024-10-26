@@ -1,5 +1,7 @@
 def mergeSort(arr):
     n = len(arr)
+    if n == 0:
+        return
     if n > 1:  # keep dividing uptil one element is left in array, then its already sorted
         mid = n//2
         # make two sub arrays around the midpoint

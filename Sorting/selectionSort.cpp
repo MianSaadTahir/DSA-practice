@@ -22,6 +22,10 @@ int main()
 void selectionSort(vector<int> &arr)
 {
     int n = arr.size();
+    if (n == 0)
+    { // if empty input
+        return;
+    }
     for (int i = 0; i < n - 1; i++) // last element will be sorted after first pass so no need to go to last element
     {
         int min_index = i;              // by default take each i as minimum value index

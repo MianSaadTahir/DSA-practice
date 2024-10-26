@@ -20,6 +20,10 @@ int main()
 void bubbleSort(vector<int> &arr)
 {
     int n = arr.size();
+    if (n == 0)
+    { // if empty input
+        return;
+    }
     for (int i = 0; i < n - 1; i++)
     {
         bool swapped = false;

@@ -23,6 +23,10 @@ void insertionSort(vector<int> &arr)
 {
     int n = arr.size();
 
+    if (n == 0)
+    { // if empty input
+        return;
+    }
     for (int i = 1; i < n; i++)
     {
         int key = arr[i]; // element to be inserted, pick i in every iteration

@@ -21,6 +21,11 @@ int main()
 
 void quickSort(vector<int> &arr, int low, int high)
 {
+    int n = arr.size();
+    if (n == 0)
+    { // if empty input
+        return;
+    }
     if (low < high) // keep dividing until sub arrays have one element
     {
         int pivot = partition(arr, low, high); // find pivot to divide sub arrays around it
