@@ -26,20 +26,24 @@ void countingSort(vector<int> &input)
     { // if empty input
         return;
     }
-    int m = 0; // declare max value
+    int maxValue = input[0]; // initialize first value in input vector as maxValue value by default
     for (int i = 0; i < n; i++)
     {
-        m = max(m, input[i]); // find max value in input vector and assign to m
+        // find maxValue value in input vector and assign to maxValue
+        if (input[i] > maxValue)
+        {
+            maxValue = input[i];
+        }
     }
-    vector<int> count(m + 1, 0); // count vector of 0 elements of  size max+1
-    vector<int> output(n, 0);    // output vector of 0 elements of  size equal to length of input vec
+    vector<int> count(maxValue + 1, 0); // count vector of 0 elements of  size maxValue+1
+    vector<int> output(n, 0);           // output vector of 0 elements of  size equal to length of input vec
 
     for (int i = 0; i < n; i++)
     { // counting occurences of each element in input vector and incrementing relevant count index
         count[input[i]]++;
     }
     // calculate cummulative counts of count vector
-    for (int i = 1; i <= m; i++)
+    for (int i = 1; i < count.size(); i++)
     {
         count[i] += count[i - 1];
     }
