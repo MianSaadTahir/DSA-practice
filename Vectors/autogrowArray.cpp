@@ -1,3 +1,5 @@
+// a class autogrowarray with different functionalities
+
 #include <iostream>
 using namespace std;
 
