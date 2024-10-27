@@ -1,0 +1,180 @@
+#include <iostream>
+using namespace std;
+
+// Node class representing each element in the linked list
+class Node
+{
+public:
+    int data;   // Data stored in the node
+    Node *next; // Pointer to the next node
+
+    // Constructor to initialize the node with a value
+    Node(int x) : data(x), next(NULL) {}
+};
+
+class CircularLinkedList
+{
+private:
+    Node *head; // head pointer in the list
+
+public:
+    // Constructor to initialize an empty list
+    CircularLinkedList() : head(NULL) {}
+
+    // Destructor to free all nodes
+    ~CircularLinkedList()
+    {
+        if (head == NULL)
+            return;
+
+        Node *current = head;
+        Node *temp;
+        do
+        {
+            temp = current;
+            current = current->next;
+            delete temp;
+        } while (current != head);
+    }
+
+    // Function to check if the list is empty
+    bool isEmpty()
+    {
+        return head == NULL;
+    }
+
+    // Function to insert a new node at the end of the list
+    void insertAtEnd(int x)
+    {
+        Node *newNode = new Node(x);
+        if (head == NULL) // If list is empty
+        {
+            head = newNode;
+            newNode->next = head; // Point to itself to make it circular
+        }
+        else
+        {
+            Node *temp = head;
+            while (temp->next != head) // Traverse to the last node
+            {
+                temp = temp->next;
+            }
+            temp->next = newNode; // Link last node to new node
+            newNode->next = head; // Point new node to head
+        }
+    }
+
+    // Function to insert a new node at the head of the list
+    void insertAtHead(int x)
+    {
+        Node *newNode = new Node(x);
+        if (head == NULL) // If list is empty
+        {
+            head = newNode;
+            newNode->next = head; // Point to itself
+        }
+        else
+        {
+            Node *temp = head;
+            while (temp->next != head) // Traverse to the last node
+            {
+                temp = temp->next;
+            }
+            temp->next = newNode; // Link last node to new node
+            newNode->next = head; // New node points to head
+            head = newNode;       // Update head to the new node
+        }
+    }
+
+    // Function to delete a node from the start
+    bool deleteFromStart()
+    {
+        if (isEmpty())
+        {
+            return false; // Return false if list is empty
+        }
+        if (head->next == head) // Only one node in the list
+        {
+            delete head;
+            head = NULL;
+            return true;
+        }
+        Node *temp = head;
+        Node *current = head;
+        while (current->next != head) // Find the last node
+        {
+            current = current->next;
+        }
+        head = head->next;    // Update head to the next node
+        current->next = head; // Last node points to new head
+        delete temp;          // Delete the old head
+        return true;
+    }
+
+    // Function to delete a node from the end
+    bool deleteFromEnd()
+    {
+        if (isEmpty())
+        {
+            return false; // Return false if list is empty
+        }
+        if (head->next == head) // Only one node in the list
+        {
+            delete head;
+            head = NULL;
+            return true;
+        }
+
+        Node *current = head;
+        while (current->next->next != head) // Traverse to the second last node
+        {
+            current = current->next;
+        }
+        delete current->next; // Delete the last node
+        current->next = head; // Update the second last node to point to head
+        return true;
+    }
+
+    // Function to display the circular linked list
+    void displayList()
+    {
+        if (isEmpty())
+        {
+            cout << "List is empty\n";
+            return;
+        }
+        Node *temp = head; // start at head
+        do
+        {
+            cout << temp->data << " -> "; // print the data of temp node
+            temp = temp->next;            // update temp node to move to next node
+        } while (temp != head);
+        cout << "(back to head)\n"; // indicate circular nature
+    }
+};
+
+int main()
+{
+    CircularLinkedList list;
+    cout << endl;
+
+    list.insertAtHead(1);
+    list.displayList();
+
+    list.insertAtEnd(2);
+    list.displayList();
+
+    list.insertAtEnd(3);
+    list.displayList();
+
+    list.insertAtEnd(4);
+    list.displayList();
+
+    list.deleteFromStart();
+    list.displayList();
+
+    list.deleteFromEnd();
+    list.displayList();
+
+    return 0;
+}
