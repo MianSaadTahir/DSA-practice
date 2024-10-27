@@ -70,12 +70,21 @@ int main()
 {
     Stack stack;
     // driver calls to check functionalities
-    stack.push(10);
-    stack.push(20);
-    stack.push(30);
+    stack.displayStack();
+    cout << endl;
 
+    stack.push(10);
     stack.displayStack();
+
+    stack.push(20);
+    stack.displayStack();
+
+    stack.push(30);
+    stack.displayStack();
+
     stack.pop();
-    cout << stack.peek();
     stack.displayStack();
+
+    // cout << stack.peek();
+    // stack.displayStack();
 }
