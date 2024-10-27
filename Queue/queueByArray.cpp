@@ -38,7 +38,7 @@ public:
     {
         // check if queue is already empty
 
-        if (front == 1 || front > rear)
+        if (front == -1 || front > rear)
         {
             cout << "Queue underflow";
             return -1;
@@ -50,7 +50,7 @@ public:
     int peek()
     {
         // check if queue is already empty
-        if (front == 1 || front > rear)
+        if (front == -1 || front > rear)
         {
             cout << "Queue underflow";
             return -1;
