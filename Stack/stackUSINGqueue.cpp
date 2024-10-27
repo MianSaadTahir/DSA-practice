@@ -11,7 +11,7 @@ private:
 public:
     void push(int value)
     {
-        // enqueue new elements to q1
+        // push new elements to q2
         q2.push(value);
 
         // untill q1 is not empty
