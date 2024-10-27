@@ -1,3 +1,5 @@
+# add remove and show names in a list
+
 studentsList = []
 
 

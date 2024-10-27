@@ -1,3 +1,5 @@
+# perform different operations on list of integers
+
 numbers = [12, -7, 5, 64, -14, 0, 23, -8]
 
 

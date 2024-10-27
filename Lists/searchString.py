@@ -1,3 +1,5 @@
+# search for a name in names list
+
 names = ['saad', 'ahmad', 'ali']
 
 

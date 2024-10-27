@@ -1,3 +1,5 @@
+# calculate time to append integers in a list
+
 import time
 
 numbers = []
