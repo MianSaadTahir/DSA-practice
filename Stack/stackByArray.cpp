@@ -8,7 +8,7 @@ private:
     static const int size = 100;
     // make an array to store stack elements
     int stack[size];
-    // pointer to keep track of top most element is stack
+    // pointer to keep track of top most element in stack
     int top;
 
 public:
