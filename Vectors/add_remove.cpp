@@ -1,4 +1,4 @@
-// add remove and display strings in a vector
+// add, remove and display strings in a vector
 
 #include <iostream>
 #include <vector>
