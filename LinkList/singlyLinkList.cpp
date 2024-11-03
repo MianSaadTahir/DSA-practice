@@ -14,6 +14,7 @@ public:
     Node(int x) : data(x), next(NULL) {}
 };
 
+// link list class
 class LinkedList
 {
 
